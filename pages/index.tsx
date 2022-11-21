@@ -12,7 +12,7 @@ const mockupData: Data[] = [
   {
     question: '친구와 약속이 취소되었을때 나는',
     firstAnswer: { desc: `다른 친구에게 연락해서 나오라고 한다`, type: 'E' },
-    secondAnswer: { desc: '다른 친구에게 연락해서 나오라고 한다', type: 'I' },
+    secondAnswer: { desc: `오히려 좋아`, type: 'I' },
   },
   {
     question: '예전에 한 번 했던거에 대해서 나는',
@@ -218,7 +218,7 @@ export default function Home() {
             {mockupData[typeCounts.step].firstAnswer.desc}
           </button>
           <button onClick={() => handleTestCount('I')} className={btnStyle}>
-            {mockupData[typeCounts.step].firstAnswer.desc}
+            {mockupData[typeCounts.step].secondAnswer.desc}
           </button>
         </div>
       </div>
