@@ -67,7 +67,7 @@ export default function Home() {
     return (
       <div className='flex flex-col'>
         <h2 className='text-center mb-24 h'>{typeCounts.step + 1} 단계</h2>
-        <h1 className='text-2xl font-bold text-center mb-24 h-12'>
+        <h1 className='text-2xl font-bold text-center mb-24 h-12 whitespace-pre-line'>
           {mockupData[typeCounts.step].question}
         </h1>
         <div className={'flex flex-col w-full'}>
