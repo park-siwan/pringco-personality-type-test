@@ -34,6 +34,26 @@ export default function TestResult() {
       당신은 {result[idResult]}
       <ul>
         <li>MBTI: {idResult}</li>
+        <li>
+          <a
+            href='https://www.instagram.com/pringco.studio/'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            인스타그램 링크
+          </a>
+        </li>
+        <li>
+          <a
+            href='https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fapi.channel.io%252Ffront%252Fv5%252Fapp%252Fkakao%252Fauthorize%26state%3DUDlX8qX3%26through_account%3Dtrue%26client_id%3D4e2c3b003da72eb73123e5772434125f'
+            target='_blank'
+            rel='noreferrer'
+            className='underline'
+          >
+            카톡링크
+          </a>
+        </li>
       </ul>
     </div>
   );
