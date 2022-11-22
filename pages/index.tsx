@@ -18,6 +18,7 @@ export default function Home() {
     P: 0,
     step: 0,
   });
+
   /**
    * @todo
    * - 12가지의 선택지와 24가지의 질문이 있다.
@@ -29,6 +30,7 @@ export default function Home() {
   const handleTestCount = (type: personalityType) => {
     if (typeCounts.step === 11) {
       const { E, I, S, N, T, F, J, P } = typeCounts;
+      console.log('typeCounts', typeCounts);
       const extrovertedOrInTroverted = E > I ? 'E' : 'I';
       const sensingOrIntuition = S > N ? 'S' : 'N';
       const thinkingOrFeeling = T > F ? 'T' : 'F';
@@ -79,7 +81,12 @@ export default function Home() {
           >
             {mockupData[typeCounts.step].firstAnswer.desc}
           </button>
-          <button onClick={() => handleTestCount('I')} className={btnStyle}>
+          <button
+            onClick={() =>
+              handleTestCount(mockupData[typeCounts.step].secondAnswer.type)
+            }
+            className={btnStyle}
+          >
             {mockupData[typeCounts.step].secondAnswer.desc}
           </button>
         </div>
