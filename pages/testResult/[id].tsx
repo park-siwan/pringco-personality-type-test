@@ -29,7 +29,14 @@ export default function TestResult() {
   const { id } = route.query;
   const idResult = id as string;
 
-  return <div>당신은 {result[idResult]}</div>;
+  return (
+    <div>
+      당신은 {result[idResult]}
+      <ul>
+        <li>MBTI: {idResult}</li>
+      </ul>
+    </div>
+  );
 }
 // export async function getStaticPaths() {
 //   // const postData = getPostData(params.id);

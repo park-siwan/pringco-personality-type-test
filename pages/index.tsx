@@ -53,7 +53,6 @@ export default function Home() {
       step: typeCounts.step + 1,
     });
   };
-  console.log('typeCounts', typeCounts);
 
   const handleTestStart = () => {
     setIsTestStart(true);
