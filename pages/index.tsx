@@ -124,8 +124,9 @@ export default function Home() {
             >
               <Image src={startBtn} alt='What is the ball you chose?' />
             </button>
-
-            <Image src={hourglass} alt='모래시계' className=' mb-[64px]' />
+            <div className='w-full flex justify-center'>
+              <Image src={hourglass} alt='모래시계' className='mb-[64px]' />
+            </div>
           </>
         )}
       </main>
@@ -136,7 +137,7 @@ export default function Home() {
             href='https://pringco.com'
             target='_blank'
             rel='noreferrer'
-            className='w-full mb-3'
+            className='w-full mb-3 block'
           >
             <Image src={mainFooter} alt='footer description' />
           </a>
