@@ -102,7 +102,7 @@ export default function Home() {
         {/* <link rel='icon' href='/favicon.ico' /> */}
       </Head>
 
-      <main className='w-full'>
+      <main className='w-full pt-14 px-3'>
         {isTestStart ? (
           <TestDoc />
         ) : (
