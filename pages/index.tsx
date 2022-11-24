@@ -3,7 +3,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { mockupData, personalityType } from './api/data';
-
+import mainBilliards from '../public/images/main-billiards.png';
+import hourglass from '../public/images/hourglass.png';
+import mainFooter from '../public/images/main-footer.png';
+import startBtn from '../public/images/start-btn.svg';
+import { css } from '@emotion/react';
 export default function Home() {
   const route = useRouter();
   const [isTestStart, setIsTestStart] = useState(false);
@@ -67,7 +71,7 @@ export default function Home() {
   const TestDoc = () => {
     return (
       <div className='flex flex-col'>
-        <h2 className='text-center mb-24 h'>{typeCounts.step + 1} 단계</h2>
+        <h2 className='text-center mb-24'>{typeCounts.step + 1} 단계</h2>
         <h1 className='text-2xl font-bold text-center mb-24 h-12 whitespace-pre-line'>
           {mockupData[typeCounts.step].question}
         </h1>
@@ -102,36 +106,45 @@ export default function Home() {
         {/* <link rel='icon' href='/favicon.ico' /> */}
       </Head>
 
-      <main className='w-full pt-14 px-3'>
+      <main className='px-7 w-full pt-[110px] flex flex-wrap justify-center'>
         {isTestStart ? (
           <TestDoc />
         ) : (
           <>
-            <h1 className='text-3xl font-bold text-center'>
-              What is the ball you chose?
-            </h1>
+            <Image
+              src={mainBilliards}
+              alt='당구공 이미지'
+              className='mb-[23px]'
+            />
+
             <button
               onClick={handleTestStart}
-              className='bg-red-500 text-white w-full p-3 rounded-full'
+              // className='bg-[#D7D4CF] text-[#110306] w-full p-3 mb-[49px]'
+              className='mb-[64px]'
             >
-              테스트 시작하기
+              <Image src={startBtn} alt='What is the ball you chose?' />
             </button>
+
+            <Image src={hourglass} alt='모래시계' className=' mb-[64px]' />
           </>
         )}
       </main>
 
-      <footer>
-        {/* <a
-          href='https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src='/vercel.svg' alt='Vercel Logo' width={72} height={16} />
-          </span>
-        </a> */}
-      </footer>
+      {!isTestStart && (
+        <footer className='px-7 flex flex-wrap justify-center'>
+          <a
+            href='https://pringco.com'
+            target='_blank'
+            rel='noreferrer'
+            className='w-full mb-3'
+          >
+            <Image src={mainFooter} alt='footer description' />
+          </a>
+          <p className='font-medium text-xs mb-7'>
+            Copyright ⓒ 2022 Pringco. All rights reserved
+          </p>
+        </footer>
+      )}
     </div>
   );
 }

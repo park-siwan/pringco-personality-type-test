@@ -5,7 +5,8 @@ import { css } from '@emotion/react';
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div
-      className='max-w-sm mx-auto h-screen bg-gradient-to-b'
+      //아이패드 때문에 1024px
+      className='mx-auto min-h-screen w-full lg:max-w-lg'
       css={css`
         background: linear-gradient(
           180deg,
