@@ -138,7 +138,7 @@ export default function Home() {
             href='https://pringco.com'
             target='_blank'
             rel='noreferrer'
-            className='w-full mb-3 block flex justify-center'
+            className='w-full mb-3 flex justify-center'
           >
             <Image src={mainFooter} alt='footer description' />
           </a>
