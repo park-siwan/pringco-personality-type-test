@@ -111,16 +111,17 @@ export default function Home() {
           <TestDoc />
         ) : (
           <>
-            <Image
-              src={mainBilliards}
-              alt='당구공 이미지'
-              className='mb-[23px]'
-            />
-
+            <div className='w-full flex justify-center'>
+              <Image
+                src={mainBilliards}
+                alt='당구공 이미지'
+                className='mb-[23px]'
+              />
+            </div>
             <button
               onClick={handleTestStart}
               // className='bg-[#D7D4CF] text-[#110306] w-full p-3 mb-[49px]'
-              className='mb-[64px]'
+              className='flex justify-center w-full mb-[64px]'
             >
               <Image src={startBtn} alt='What is the ball you chose?' />
             </button>
@@ -137,10 +138,11 @@ export default function Home() {
             href='https://pringco.com'
             target='_blank'
             rel='noreferrer'
-            className='w-full mb-3 block'
+            className='w-full mb-3 block flex justify-center'
           >
             <Image src={mainFooter} alt='footer description' />
           </a>
+
           <p className='font-medium text-xs mb-7'>
             Copyright ⓒ 2022 Pringco. All rights reserved
           </p>
