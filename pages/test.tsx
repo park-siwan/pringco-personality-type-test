@@ -2,9 +2,10 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { mockupData, personalityType } from './api/data';
-import question from '../public/images/test/1/question.png';
+import questionBox from '../public/images/test/question-box.png';
 import first from '../public/images/test/1/first.png';
 import second from '../public/images/test/1/second.png';
+import grayBtn from '../public/images/grayBtn.png';
 
 export default function Test() {
   const route = useRouter();
@@ -57,10 +58,18 @@ export default function Test() {
   const TestDoc = () => {
     return (
       <div className='flex flex-col'>
-        <Image src={question} alt={mockupData[typeCounts.step].question} />
-        <h2 className='text-center mb-24'>{typeCounts.step + 1} 단계</h2>
-        {mockupData[typeCounts.step].question}
-        {/* <h1 className='text-2xl font-bold text-center mb-24 h-12 whitespace-pre-line'></h1> */}
+        <h2 className='text-center mb-10'>{typeCounts.step + 1} 단계</h2>
+        <div className='flex justify-center'>
+          <div className='flex justify-center items-center relative w-[332px]'>
+            <Image
+              src={questionBox}
+              alt={mockupData[typeCounts.step].question}
+            />
+            <h1 className='absolute whitespace-pre-line m-8 text-center'>
+              {mockupData[typeCounts.step].question}
+            </h1>
+          </div>
+        </div>
         <div className='mb-6'>
           {/* <Image src={question} alt={mockupData[typeCounts.step].question} /> */}
           {/* {mockupData[typeCounts.step].question} */}
@@ -70,26 +79,31 @@ export default function Test() {
             onClick={() =>
               handleTestCount(mockupData[typeCounts.step].firstAnswer.type)
             }
-            className={'mb-4'}
-            // className={btnStyle}
+            className='mb-4 relative flex justify-center items-center'
           >
             <Image
-              src={first}
+              src={grayBtn}
+              className='w-[277px] h-[83px]'
               alt={mockupData[typeCounts.step].firstAnswer.desc}
             />
-            {mockupData[typeCounts.step].firstAnswer.desc}
+            <h2 className='absolute font-bold m-6 text-[13px]'>
+              {mockupData[typeCounts.step].firstAnswer.desc}
+            </h2>
           </button>
           <button
             onClick={() =>
               handleTestCount(mockupData[typeCounts.step].secondAnswer.type)
             }
-            // className={btnStyle}
+            className='mb-4 relative flex justify-center items-center'
           >
             <Image
-              src={second}
+              className='w-[277px] h-[83px]'
+              src={grayBtn}
               alt={mockupData[typeCounts.step].secondAnswer.desc}
             />
-            {mockupData[typeCounts.step].secondAnswer.desc}
+            <h2 className='absolute font-bold m-6 text-[13px]'>
+              {mockupData[typeCounts.step].secondAnswer.desc}
+            </h2>
           </button>
         </div>
       </div>

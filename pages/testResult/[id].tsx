@@ -13,7 +13,7 @@ import shareKakao from '../../public/images/testResult/share/share-kakao.png';
 import resultBack from '../../public/images/testResult/result-back.png';
 
 import resultBackSm from '../../public/images/testResult/combination/result-back.png';
-import grayBtn from '../../public/images/testResult/grayBtn.png';
+import grayBtn from '../../public/images/grayBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
 
