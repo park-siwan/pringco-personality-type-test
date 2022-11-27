@@ -97,24 +97,24 @@ export default function TestResult({ id }: { id: mbtiList }) {
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.partner.img}
-            alt={'환상의 짝궁'}
+            alt={'환상의 짝꿍'}
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.partner.number} />
           <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
-            환상의 짝궁
+            환상의 짝꿍
           </h3>
         </div>
         <div className='relative mr-3 w-[161px] flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.opposition.img}
-            alt={'환장의 짝궁'}
+            alt={'환장의 짝꿍'}
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.opposition.number} />
           <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
-            환장의 짝궁
+            환장의 짝꿍
           </h3>
         </div>
       </div>
