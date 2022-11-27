@@ -2,13 +2,13 @@ import { StaticImageData } from 'next/image';
 import ball0 from '../../../public/images/characters/ball0.png';
 import ball1 from '../../../public/images/characters/ball1.png';
 import ball2 from '../../../public/images/characters/ball2.png';
-import ball3 from '../../../public/images/characters/ball3.png';
+
 import ball4 from '../../../public/images/characters/ball4.png';
 import ball5 from '../../../public/images/characters/ball5.png';
 import ball6 from '../../../public/images/characters/ball6.png';
 import ball7 from '../../../public/images/characters/ball7.png';
 import ball8 from '../../../public/images/characters/ball8.png';
-import ball9 from '../../../public/images/characters/ball8.png';
+
 import { ENTP, ESTJ, INFP, INTJ, ISFJ, ISFP } from './commonType';
 
 interface MbtiResult {
@@ -28,7 +28,6 @@ export const result: MbtiResult = {
   INTJ,
   ISTJ: {
     ...INTJ,
-    number: 0,
   },
   ENFJ: {
     title: '프로뉴잡러',
@@ -55,12 +54,10 @@ export const result: MbtiResult = {
   ISFP,
   ISTP: {
     ...ISFP,
-    number: 2,
   },
   ENTP,
   ESTP: {
     ...ENTP,
-    number: 3,
   },
   ENFP: {
     title: '모두의스타',
@@ -84,7 +81,6 @@ export const result: MbtiResult = {
   ISFJ,
   INFJ: {
     ...ISFJ,
-    number: 5,
   },
   ESFJ: {
     title: '평화주의자',
@@ -126,11 +122,9 @@ export const result: MbtiResult = {
   INFP,
   INTP: {
     ...INFP,
-    number: 8,
   },
   ESTJ,
   ENTJ: {
     ...ESTJ,
-    number: 0,
   },
 };

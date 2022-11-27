@@ -4,10 +4,9 @@ import ball2 from '../../../public/images/characters/ball2.png';
 import ball3 from '../../../public/images/characters/ball3.png';
 import ball4 from '../../../public/images/characters/ball4.png';
 import ball5 from '../../../public/images/characters/ball5.png';
-import ball6 from '../../../public/images/characters/ball6.png';
-import ball7 from '../../../public/images/characters/ball7.png';
+
 import ball8 from '../../../public/images/characters/ball8.png';
-import ball9 from '../../../public/images/characters/ball8.png';
+import ball9 from '../../../public/images/characters/ball9.png';
 
 export const INTJ = {
   title: '직진불도저',
