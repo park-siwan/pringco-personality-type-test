@@ -57,10 +57,9 @@ export default function TestResult({
       .writeText(window.location.href)
       .then((res) => alert('링크가 복사되었습니다.'));
   };
-
+  const shareTitle = '[8BALL FRIENDS] - ';
   const handleTwitter = () => {
-    const sendText =
-      '[8BALL FRIENDS] - 당구공 마을에 사는 데굴데굴 당구공 동물들 나의 당구공은 누구일까?'; // 전달할 텍스트
+    const sendText = `${shareTitle}당구공 마을에 사는 데굴데굴 당구공 동물들 나의 당구공은 누구일까?`; // 전달할 텍스트
     const sendUrl = window.location.href; // 전달할 URL
     window.open(
       'https://twitter.com/intent/tweet?text=' + sendText + '&url=' + sendUrl,
@@ -85,7 +84,10 @@ export default function TestResult({
       <Head>
         {/* <meta property='fb:app_id' content='APP_ID' /> */}
         <meta property='og:type' content='website' />
-        <meta property='og:title' content={`${result[id].title}`} />
+        <meta
+          property='og:title'
+          content={`${shareTitle}${result[id].title}`}
+        />
         <meta property='og:url' content={`${url}/testResult/${id}`} />
         <meta
           property='og:description'
