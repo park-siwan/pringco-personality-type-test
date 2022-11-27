@@ -58,7 +58,7 @@ export default function Test() {
   const TestDoc = () => {
     return (
       <div className='flex flex-col'>
-        <h2 className='text-center mb-10'>{typeCounts.step + 1} 단계</h2>
+        <h2 className='text-center mb-10'>{typeCounts.step + 1}/12</h2>
         <div className='flex justify-center'>
           <div className='flex justify-center items-center relative w-[332px]'>
             <Image
