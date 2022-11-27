@@ -28,11 +28,11 @@ export const result: MbtiResult = {
   INTJ,
   ISTJ: {
     ...INTJ,
-    number: 1,
+    number: 0,
   },
   ENFJ: {
     title: '프로 뉴잡러',
-    number: 0,
+    number: 1,
     img: ball1,
     desc: `잘하는 거 재밌는 거 배우고 싶은 거 다해봐야 적성이 풀리는 1번 쿼카. 너무 즉흥적인 거 아니냐는 소리도 종종 듣지만 
     궁금한 건 해봐야 적성이 풀리는걸! 물론 시작한 일을 모두 

@@ -13,6 +13,7 @@ import shareKakao from '../../public/images/testResult/share/share-kakao.png';
 import resultBack from '../../public/images/testResult/result-back.png';
 
 import resultBackSm from '../../public/images/testResult/combination/result-back.png';
+import grayBtn from '../../public/images/testResult/grayBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
 
@@ -66,23 +67,24 @@ export default function TestResult({ id }: { id: mbtiList }) {
       </div>
 
       {/* 유형 설명 */}
-      <div className='relative flex justify-center'>
-        <Image src={resultBack} alt={'you are ball is'} className='mb-7' />
-        <h1 className='absolute top-14 font-bold text-2xl'>
-          {result[id].title}
-        </h1>
-        <div className='absolute flex flex-col top-24'>
-          <div className='w-full flex justify-center mb-6'>
-            <Image src={result[id].img} alt={'직진'} className='' />
+      <div className='flex justify-center'>
+        <div className='relative w-[323px]'>
+          <Image src={resultBack} alt={'you are ball is'} className='mb-7' />
+          <h1 className='absolute flex justify-center w-full top-14 font-bold text-2xl'>
+            {result[id].title}
+          </h1>
+          <div className='absolute flex flex-col top-24'>
+            <div className='w-full flex justify-center mb-6'>
+              <Image src={result[id].img} alt={'유형 결과'} className='' />
+            </div>
+            <p className='text-sm p-4'>{result[id].desc}</p>
           </div>
-          <p className='text-sm p-4'>{result[id].desc}</p>
+          <BallTag num={result[id].number} />
         </div>
-        <BallTag num={0} />
       </div>
-
       {/* 케미 */}
       <div className='flex justify-center mb-20 h-[181px]'>
-        <div className='relative mr-3 w-full flex justify-center'>
+        <div className='relative mr-3 w-[161px] flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.partner.img}
@@ -94,7 +96,7 @@ export default function TestResult({ id }: { id: mbtiList }) {
             환상의 짝궁
           </h3>
         </div>
-        <div className='relative mr-3 w-full flex justify-center'>
+        <div className='relative mr-3 w-[161px] flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.opposition.img}
@@ -140,23 +142,40 @@ export default function TestResult({ id }: { id: mbtiList }) {
         </div>
       </div>
       <div className='flex flex-col items-center space-y-3 mb-24'>
-        <button onClick={() => route.push('/')}>테스트 다시하기</button>
-        <button>8BALL FRIENDS 입양하기</button>
+        <button
+          onClick={() => route.push('/')}
+          className='relative flex justify-center items-center'
+        >
+          <Image src={grayBtn} alt='테스트 다시하기' />
+          <h4 className='absolute font-bold'>테스트 다시하기</h4>
+        </button>
+
         <a
-          href='https://www.instagram.com/pringco.studio/'
+          className='relative flex justify-center items-center'
+          href='https://tumblbug.com/u/donigamugonujodi/created'
           target='_blank'
           rel='noreferrer'
-          // className='underline'
         >
-          PRINGCO 인스타그램
+          <Image src={grayBtn} alt='8BALL FRIENDS 입양하기' />
+          <h4 className='absolute font-bold'>8BALL FRIENDS 입양하기</h4>
+        </a>
+        <a
+          href='https://www.instagram.com/pringco.studio'
+          className='relative flex justify-center items-center'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <Image src={grayBtn} alt='PRINGCO 인스타그램' />
+          <h4 className='absolute font-bold'> PRINGCO 인스타그램</h4>
         </a>
         <a
           href='https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fresponse_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fapi.channel.io%252Ffront%252Fv5%252Fapp%252Fkakao%252Fauthorize%26state%3DUDlX8qX3%26through_account%3Dtrue%26client_id%3D4e2c3b003da72eb73123e5772434125f'
           target='_blank'
           rel='noreferrer'
-          className='block'
+          className='relative flex justify-center items-center'
         >
-          카카오톡 문의하기
+          <Image src={grayBtn} alt='카카오톡 문의하기' />
+          <h4 className='absolute font-bold'>카카오톡 문의하기</h4>
         </a>
       </div>
       <Footer />
