@@ -35,7 +35,7 @@ type mbtiList =
   | 'INTP'
   | 'ESTJ'
   | 'ENTJ';
-
+const URL = 'https://pringco-personality-type-test.vercel.app/';
 export default function TestResult({
   id,
   url,
@@ -45,6 +45,8 @@ export default function TestResult({
   url: string;
   img: StaticImageData;
 }) {
+  const IMG_URL = `${url}${img.src}`;
+  const TEST_RESULT_URL = `${url}/testResult/${id}`;
   console.log('id', id);
   console.log('img', img);
   const route = useRouter();
@@ -52,12 +54,24 @@ export default function TestResult({
     if (!route.isReady) return;
   }, [route.isReady]);
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const handleLinkShare = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then((res) => alert('링크가 복사되었습니다.'));
   };
+
   const shareTitle = '[8BALL FRIENDS] - ';
+
   const handleTwitter = () => {
     const sendText = `${shareTitle}당구공 마을에 사는 데굴데굴 당구공 동물들 나의 당구공은 누구일까?`; // 전달할 텍스트
     const sendUrl = window.location.href; // 전달할 URL
@@ -71,6 +85,47 @@ export default function TestResult({
     window.open('http://www.facebook.com/sharer/sharer.php?u=' + sendUrl);
   };
 
+  const handleKakao = () => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      console.log('kakao', kakao);
+
+      if (!kakao.isInitialized()) {
+        kakao.init('a4ca4b010f24f9eeef3534dace2e545d');
+      }
+
+      kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: result[id].title,
+          description: result[id].desc,
+          imageUrl: IMG_URL,
+          link: {
+            // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+            mobileWebUrl: URL,
+            webUrl: URL,
+          },
+        },
+        buttons: [
+          {
+            title: `자세히 보기`,
+            link: {
+              mobileWebUrl: TEST_RESULT_URL,
+              webUrl: TEST_RESULT_URL,
+            },
+          },
+          {
+            title: '테스트 해보기',
+            link: {
+              mobileWebUrl: URL,
+              webUrl: URL,
+            },
+          },
+        ],
+      });
+    }
+  };
+
   const BallTag = ({ num }: { num: number }) => {
     return (
       <div className='absolute bg-[#E8E33D] border-solid border-[#040000] border px-1 font-semibold text-[11.8px] -left-4 top-10'>
@@ -78,22 +133,30 @@ export default function TestResult({
       </div>
     );
   };
-  console.log(`${url}${img.src}`);
+  console.log(IMG_URL);
   return (
     <div>
       <Head>
+        {/* <script></script> */}
         {/* <meta property='fb:app_id' content='APP_ID' /> */}
+        <script
+          src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js'
+          integrity='sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/'
+          crossorigin='anonymous'
+        ></script>
+        {/* <script></script> */}
+
         <meta property='og:type' content='website' />
         <meta
           property='og:title'
           content={`${shareTitle}${result[id].title}`}
         />
-        <meta property='og:url' content={`${url}/testResult/${id}`} />
+        <meta property='og:url' content={TEST_RESULT_URL} />
         <meta
           property='og:description'
           content={`${result[id].desc.slice(0, 100)}...`}
         />
-        <meta property='og:image' content={`${url}${img.src}`} />
+        <meta property='og:image' content={IMG_URL} />
       </Head>
       <div className='flex justify-center w-full mb-5'>
         <Image src={title} alt={'you are ball is'} />
@@ -165,7 +228,7 @@ export default function TestResult({
           <button onClick={handleFacebook}>
             <Image src={shareFacebook} alt={'페이스북 공유'} className='mr-6' />
           </button>
-          <button>
+          <button onClick={handleKakao}>
             <Image src={shareKakao} alt={'카카오톡 공유'} />
           </button>
         </div>
@@ -222,7 +285,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       id,
-      url: `https://pringco-personality-type-test.vercel.app`,
+      url: URL,
       img: result[id as mbtiList].img,
     },
   };
