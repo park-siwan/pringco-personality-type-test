@@ -77,7 +77,7 @@ export default function TestResult({
       </div>
     );
   };
-
+  console.log(`${url}${img.src}`);
   return (
     <div>
       <Head>
@@ -87,9 +87,9 @@ export default function TestResult({
         <meta property='og:url' content={`${url}`} />
         <meta
           property='og:description'
-          content={`${result[id].desc.slice(0, 20)}...`}
+          content={`${result[id].desc.slice(0, 60)}...`}
         />
-        <meta property='og:image' content={`${url}/${img}`} />
+        <meta property='og:image' content={`${url}${img.src}`} />
       </Head>
       <div className='flex justify-center w-full mb-5'>
         <Image src={title} alt={'you are ball is'} />
