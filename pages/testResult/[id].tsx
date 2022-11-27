@@ -45,6 +45,8 @@ export default function TestResult({
   url: string;
   img: StaticImageData;
 }) {
+  console.log('id', id);
+  console.log('img', img);
   const route = useRouter();
   useEffect(() => {
     if (!route.isReady) return;
@@ -77,7 +79,7 @@ export default function TestResult({
       </div>
     );
   };
-
+  console.log(`${url}${img.src}`);
   return (
     <div>
       <Head>
