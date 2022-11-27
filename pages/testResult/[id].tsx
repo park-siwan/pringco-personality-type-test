@@ -16,6 +16,7 @@ import resultBackSm from '../../public/images/testResult/combination/result-back
 import grayBtn from '../../public/images/grayBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
+import Head from 'next/head';
 
 type mbtiList =
   | 'INTJ'
@@ -35,7 +36,15 @@ type mbtiList =
   | 'ESTJ'
   | 'ENTJ';
 
-export default function TestResult({ id }: { id: mbtiList }) {
+export default function TestResult({
+  id,
+  url,
+  img,
+}: {
+  id: mbtiList;
+  url: string;
+  img: StaticImageData;
+}) {
   const route = useRouter();
   useEffect(() => {
     if (!route.isReady) return;
@@ -71,6 +80,17 @@ export default function TestResult({ id }: { id: mbtiList }) {
 
   return (
     <div>
+      <Head>
+        {/* <meta property='fb:app_id' content='APP_ID' /> */}
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content={`${result[id].title}`} />
+        <meta property='og:url' content={`${url}`} />
+        <meta
+          property='og:description'
+          content={`${result[id].desc.slice(0, 20)}...`}
+        />
+        <meta property='og:image' content={`${url}/${img}`} />
+      </Head>
       <div className='flex justify-center w-full mb-5'>
         <Image src={title} alt={'you are ball is'} />
       </div>
@@ -84,7 +104,7 @@ export default function TestResult({ id }: { id: mbtiList }) {
           </h1>
           <div className='absolute flex flex-col top-24 w-full'>
             <div className='w-full flex justify-center mb-6'>
-              <Image src={result[id].img} alt={'유형 결과'} className='' />
+              <Image src={img} alt={'유형 결과'} className='' />
             </div>
             <p className='text-sm p-4'>{result[id].desc}</p>
           </div>
@@ -198,6 +218,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       id,
+      url: `https://pringco-personality-type-test.vercel.app/testResult/${id}`,
+      img: result[id as mbtiList].img,
     },
   };
 };
