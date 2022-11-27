@@ -56,6 +56,11 @@ export default function TestResult({ id }: { id: mbtiList }) {
     );
   };
 
+  const handleFacebook = () => {
+    const sendUrl = window.location.href; // 전달할 URL
+    window.open('http://www.facebook.com/sharer/sharer.php?u=' + sendUrl);
+  };
+
   const BallTag = ({ num }: { num: number }) => {
     return (
       <div className='absolute bg-[#E8E33D] border-solid border-[#040000] border px-1 font-semibold text-[11.8px] -left-4 top-10'>
@@ -133,7 +138,7 @@ export default function TestResult({ id }: { id: mbtiList }) {
           </button>
         </div>
         <div className='flex'>
-          <button>
+          <button onClick={handleFacebook}>
             <Image src={shareFacebook} alt={'페이스북 공유'} className='mr-6' />
           </button>
           <button>
