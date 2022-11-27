@@ -83,23 +83,28 @@ export default function TestResult({ id }: { id: mbtiList }) {
       {/* 케미 */}
       <div className='flex justify-center mb-20 h-[181px]'>
         <div className='relative mr-3 w-full flex justify-center'>
-          <h3>환상의 짝궁</h3>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.partner.img}
-            alt={'직진'}
-            className='absolute w-[105px] top-8'
+            alt={'환상의 짝궁'}
+            className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.partner.number} />
+          <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
+            환상의 짝궁
+          </h3>
         </div>
         <div className='relative mr-3 w-full flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.opposition.img}
-            alt={'직진'}
-            className='absolute w-[105px] top-8'
+            alt={'환장의 짝궁'}
+            className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.opposition.number} />
+          <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
+            환장의 짝궁
+          </h3>
         </div>
       </div>
 
