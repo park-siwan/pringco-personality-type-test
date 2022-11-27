@@ -77,17 +77,17 @@ export default function TestResult({
       </div>
     );
   };
-  console.log(`${url}${img.src}`);
+
   return (
     <div>
       <Head>
         {/* <meta property='fb:app_id' content='APP_ID' /> */}
         <meta property='og:type' content='website' />
         <meta property='og:title' content={`${result[id].title}`} />
-        <meta property='og:url' content={`${url}`} />
+        <meta property='og:url' content={`${url}/testResult/${id}`} />
         <meta
           property='og:description'
-          content={`${result[id].desc.slice(0, 60)}...`}
+          content={`${result[id].desc.slice(0, 100)}...`}
         />
         <meta property='og:image' content={`${url}${img.src}`} />
       </Head>
@@ -218,7 +218,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       id,
-      url: `https://pringco-personality-type-test.vercel.app/testResult/${id}`,
+      url: `https://pringco-personality-type-test.vercel.app`,
       img: result[id as mbtiList].img,
     },
   };
