@@ -17,6 +17,7 @@ import grayBtn from '../../public/images/grayBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
 import Head from 'next/head';
+import Script from 'next/script';
 
 type mbtiList =
   | 'INTJ'
@@ -88,7 +89,6 @@ export default function TestResult({
   const handleKakao = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
-      console.log('kakao', kakao);
 
       if (!kakao.isInitialized()) {
         kakao.init('a4ca4b010f24f9eeef3534dace2e545d');
@@ -136,14 +136,15 @@ export default function TestResult({
   console.log(IMG_URL);
   return (
     <div>
+      <Script
+        src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js'
+        integrity='sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/'
+        crossOrigin='anonymous'
+      />
       <Head>
         {/* <script></script> */}
         {/* <meta property='fb:app_id' content='APP_ID' /> */}
-        <script
-          src='https://t1.kakaocdn.net/kakao_js_sdk/2.0.1/kakao.min.js'
-          integrity='sha384-eKjgHJ9+vwU/FCSUG3nV1RKFolUXLsc6nLQ2R1tD0t4YFPCvRmkcF8saIfOZNWf/'
-          crossorigin='anonymous'
-        ></script>
+
         {/* <script></script> */}
 
         <meta property='og:type' content='website' />
