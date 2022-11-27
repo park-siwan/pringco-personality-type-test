@@ -36,20 +36,24 @@ type mbtiList =
   | 'ENTJ';
 
 export default function TestResult({ id }: { id: mbtiList }) {
-  console.log('id', id);
   const route = useRouter();
   useEffect(() => {
     if (!route.isReady) return;
   }, [route.isReady]);
-  // const { id } = route.query;
-  // const idResult = id as mbtiList;
-  // if (idResult === undefined) return;
-  // console.log('idResult', idResult);
 
   const handleLinkShare = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then((res) => alert('링크가 복사되었습니다.'));
+  };
+
+  const handleTwitter = () => {
+    const sendText =
+      '[8BALL FRIENDS] - 당구공 마을에 사는 데굴데굴 당구공 동물들 나의 당구공은 누구일까?'; // 전달할 텍스트
+    const sendUrl = window.location.href; // 전달할 URL
+    window.open(
+      'https://twitter.com/intent/tweet?text=' + sendText + '&url=' + sendUrl,
+    );
   };
 
   const BallTag = ({ num }: { num: number }) => {
@@ -122,22 +126,18 @@ export default function TestResult({ id }: { id: mbtiList }) {
       <div className='flex flex-wrap justify-center flex-col items-center mb-24'>
         <div className='flex'>
           <button onClick={handleLinkShare}>
-            <Image src={shareLink} alt={'share-link'} className='mr-6 mb-6' />
+            <Image src={shareLink} alt={'링크 공유'} className='mr-6 mb-6' />
           </button>
-          <button>
-            <Image src={shareTwitter} alt={'share-twitter'} className='mb-6' />
+          <button onClick={handleTwitter}>
+            <Image src={shareTwitter} alt={'트위터 공유'} className='mb-6' />
           </button>
         </div>
         <div className='flex'>
           <button>
-            <Image
-              src={shareFacebook}
-              alt={'share-facebook'}
-              className='mr-6'
-            />
+            <Image src={shareFacebook} alt={'페이스북 공유'} className='mr-6' />
           </button>
           <button>
-            <Image src={shareKakao} alt={'share-kakao'} />
+            <Image src={shareKakao} alt={'카카오톡 공유'} />
           </button>
         </div>
       </div>
@@ -149,7 +149,6 @@ export default function TestResult({ id }: { id: mbtiList }) {
           <Image src={grayBtn} alt='테스트 다시하기' />
           <h4 className='absolute font-bold'>테스트 다시하기</h4>
         </button>
-
         <a
           className='relative flex justify-center items-center'
           href='https://tumblbug.com/u/donigamugonujodi/created'
