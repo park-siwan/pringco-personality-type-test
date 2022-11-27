@@ -73,7 +73,7 @@ export default function TestResult({ id }: { id: mbtiList }) {
           <h1 className='absolute flex justify-center w-full top-14 font-bold text-2xl'>
             {result[id].title}
           </h1>
-          <div className='absolute flex flex-col top-24'>
+          <div className='absolute flex flex-col top-24 w-full'>
             <div className='w-full flex justify-center mb-6'>
               <Image src={result[id].img} alt={'유형 결과'} className='' />
             </div>
