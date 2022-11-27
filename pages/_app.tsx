@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div
       //아이패드 때문에 1024px
-      className='mx-auto min-h-screen w-full lg:max-w-lg'
+      className='mx-auto min-h-screen w-full lg:max-w-lg px-7 pt-12'
       css={css`
         background: linear-gradient(
           180deg,
