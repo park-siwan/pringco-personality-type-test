@@ -36,20 +36,29 @@ type mbtiList =
   | 'ENTJ';
 
 export default function TestResult({ id }: { id: mbtiList }) {
-  console.log('id', id);
   const route = useRouter();
   useEffect(() => {
     if (!route.isReady) return;
   }, [route.isReady]);
-  // const { id } = route.query;
-  // const idResult = id as mbtiList;
-  // if (idResult === undefined) return;
-  // console.log('idResult', idResult);
 
   const handleLinkShare = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then((res) => alert('링크가 복사되었습니다.'));
+  };
+
+  const handleTwitter = () => {
+    const sendText =
+      '[8BALL FRIENDS] - 당구공 마을에 사는 데굴데굴 당구공 동물들 나의 당구공은 누구일까?'; // 전달할 텍스트
+    const sendUrl = window.location.href; // 전달할 URL
+    window.open(
+      'https://twitter.com/intent/tweet?text=' + sendText + '&url=' + sendUrl,
+    );
+  };
+
+  const handleFacebook = () => {
+    const sendUrl = window.location.href; // 전달할 URL
+    window.open('http://www.facebook.com/sharer/sharer.php?u=' + sendUrl);
   };
 
   const BallTag = ({ num }: { num: number }) => {
@@ -88,24 +97,24 @@ export default function TestResult({ id }: { id: mbtiList }) {
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.partner.img}
-            alt={'환상의 짝궁'}
+            alt={'환상의 짝꿍'}
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.partner.number} />
           <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
-            환상의 짝궁
+            환상의 짝꿍
           </h3>
         </div>
         <div className='relative mr-3 w-[161px] flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.opposition.img}
-            alt={'환장의 짝궁'}
+            alt={'환장의 짝꿍'}
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.opposition.number} />
           <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
-            환장의 짝궁
+            환장의 짝꿍
           </h3>
         </div>
       </div>
@@ -122,22 +131,18 @@ export default function TestResult({ id }: { id: mbtiList }) {
       <div className='flex flex-wrap justify-center flex-col items-center mb-24'>
         <div className='flex'>
           <button onClick={handleLinkShare}>
-            <Image src={shareLink} alt={'share-link'} className='mr-6 mb-6' />
+            <Image src={shareLink} alt={'링크 공유'} className='mr-6 mb-6' />
           </button>
-          <button>
-            <Image src={shareTwitter} alt={'share-twitter'} className='mb-6' />
+          <button onClick={handleTwitter}>
+            <Image src={shareTwitter} alt={'트위터 공유'} className='mb-6' />
           </button>
         </div>
         <div className='flex'>
-          <button>
-            <Image
-              src={shareFacebook}
-              alt={'share-facebook'}
-              className='mr-6'
-            />
+          <button onClick={handleFacebook}>
+            <Image src={shareFacebook} alt={'페이스북 공유'} className='mr-6' />
           </button>
           <button>
-            <Image src={shareKakao} alt={'share-kakao'} />
+            <Image src={shareKakao} alt={'카카오톡 공유'} />
           </button>
         </div>
       </div>
@@ -149,7 +154,6 @@ export default function TestResult({ id }: { id: mbtiList }) {
           <Image src={grayBtn} alt='테스트 다시하기' />
           <h4 className='absolute font-bold'>테스트 다시하기</h4>
         </button>
-
         <a
           className='relative flex justify-center items-center'
           href='https://tumblbug.com/u/donigamugonujodi/created'
