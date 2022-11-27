@@ -35,11 +35,13 @@ export default function Home() {
             className='mb-[23px]'
           />
         </div>
-        <div className='flex justify-center items-center relative'>
-          <Image src={mainTalk} alt='메인 글' className='mb-[23px]' />
-          <h3 className='absolute mx-8 font-bold mb-3 text-center text-[13px]'>
-            당구공 마을에 사는 데굴데굴 당구공동물들 나의 당구공은 누구일까?
-          </h3>
+        <div className='flex justify-center items-center mb-[23px]'>
+          <div className='relative w-[296px] flex justify-center items-center'>
+            <Image src={mainTalk} alt='메인 글' className='' />
+            <h3 className='absolute font-bold mb-3 text-center text-[13px] m-4'>
+              당구공 마을에 사는 데굴데굴 당구공동물들 나의 당구공은 누구일까?
+            </h3>
+          </div>
         </div>
         <button
           onClick={handleTestStart}
