@@ -244,7 +244,7 @@ export default function TestResult({
         </button>
         <a
           className='relative flex justify-center items-center'
-          href='https://tumblbug.com/u/donigamugonujodi/created'
+          href='https://tumblbug.com/8ballfriends'
           target='_blank'
           rel='noreferrer'
         >
