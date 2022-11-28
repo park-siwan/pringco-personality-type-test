@@ -14,7 +14,7 @@ import resultBack from '../../public/images/testResult/result-back.png';
 
 import resultBackSm from '../../public/images/testResult/combination/result-back.png';
 import grayBtn from '../../public/images/grayBtn.png';
-import greenBtn from '../../public/images/greenBtn.png';
+import greenBtn from '../../public/images/testResult/greenBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
 import Head from 'next/head';
