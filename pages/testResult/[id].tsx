@@ -245,7 +245,7 @@ export default function TestResult({
         </button>
         <a
           className='relative flex justify-center items-center'
-          href='https://tumblbug.com/8ballfriends'
+          href='https://tumblbug.com/8ballfriends?_branch_match_id=1055431723609304126&utm_source=8ballFriendsTest&utm_campaign=%25EB%258B%25B9%25EA%25B5%25AC%25EA%25B3%25B5%2520%25ED%2585%258C%25EC%258A%25A4%25ED%258A%25B8%2520%25EB%25A7%2581%25ED%2581%25AC%2520%25EC%259C%25A0%25EC%259E%2585&utm_medium=358d538f0ace3696&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9YrKc1NykkqTddLzs%2FV9yit9M73L47MKksCAGo5J3olAAAA'
           target='_blank'
           rel='noreferrer'
         >
