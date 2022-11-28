@@ -106,11 +106,11 @@ export const mockupData: Data[] = [
     question: `집으로 돌아가기 전날, 동물 친구들에게 줄 머핀을 굽기로 했다.`,
     firstAnswer: {
       desc: `한 이만큼 구우면
-    인당 하나씩 줄 수 있겠지?`,
+    하나씩 줄 수 있겠지?`,
       type: 'N',
     },
     secondAnswer: {
-      desc: `인당 하나씩 주려면..
+      desc: `하나씩 주려면..
     10개만 구우면 되겠다!`,
       type: 'S',
     },
