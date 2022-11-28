@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import Footer from '../../src/organism/Footer';
+import Footer from '../../src/components/organism/Footer';
 import title from '../../public/images/testResult/title.png';
 import partner from '../../public/images/testResult/combination/partner.png';
 import opposition from '../../public/images/testResult/combination/opposition.png';

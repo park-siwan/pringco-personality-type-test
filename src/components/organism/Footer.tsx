@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import mainFooter from '../../public/images/main-footer.png';
+import mainFooter from '../../../public/images/main-footer.png';
+
 export default function Footer() {
   return (
     <footer className='flex flex-wrap justify-center'>

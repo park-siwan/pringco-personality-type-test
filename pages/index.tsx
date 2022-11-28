@@ -9,7 +9,7 @@ import mainFooter from '../public/images/main-footer.png';
 import startBtn from '../public/images/start-btn.png';
 import mainTalk from '../public/images/main-talk.png';
 
-import Footer from '../src/organism/Footer';
+import Footer from '../src/components/organism/Footer';
 export default function Home() {
   const route = useRouter();
 
