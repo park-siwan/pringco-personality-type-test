@@ -59,7 +59,7 @@ export default function Test() {
     return (
       <div className='flex flex-col'>
         <h2 className='text-center mb-10'>{typeCounts.step + 1}/12</h2>
-        <div className='flex justify-center'>
+        <div className='flex justify-center mb-[49px]'>
           <div className='flex justify-center items-center relative w-[332px]'>
             <Image
               src={questionBox}
@@ -70,16 +70,12 @@ export default function Test() {
             </h1>
           </div>
         </div>
-        <div className='mb-6'>
-          {/* <Image src={question} alt={mockupData[typeCounts.step].question} /> */}
-          {/* {mockupData[typeCounts.step].question} */}
-        </div>
         <div className={'flex flex-col w-full items-center'}>
           <button
             onClick={() =>
               handleTestCount(mockupData[typeCounts.step].firstAnswer.type)
             }
-            className='mb-4 relative flex justify-center items-center'
+            className='mb-7 relative flex justify-center items-center'
           >
             <Image
               src={grayBtn}
