@@ -14,6 +14,7 @@ import resultBack from '../../public/images/testResult/result-back.png';
 
 import resultBackSm from '../../public/images/testResult/combination/result-back.png';
 import grayBtn from '../../public/images/grayBtn.png';
+import greenBtn from '../../public/images/greenBtn.png';
 import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/data';
 import Head from 'next/head';
@@ -181,7 +182,7 @@ export default function TestResult({
       </div>
       {/* 케미 */}
       <div className='flex justify-center mb-20 h-[181px]'>
-        <div className='relative mr-3 w-[161px] flex justify-center'>
+        <div className='relative mr-6 w-[161px] flex justify-center'>
           <Image src={resultBackSm} alt={'resultBackSm'} className='absolute' />
           <Image
             src={result[id].combination.partner.img}
@@ -189,7 +190,7 @@ export default function TestResult({
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.partner.number} />
-          <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
+          <h3 className='absolute text-white left-2.5 top-[3.5px] font-normal text-[12px]'>
             환상의 짝꿍
           </h3>
         </div>
@@ -201,7 +202,7 @@ export default function TestResult({
             className='absolute w-[105px] -bottom-5'
           />
           <BallTag num={result[id].combination.opposition.number} />
-          <h3 className='absolute text-white left-2 top-[3px] font-normal text-[12px]'>
+          <h3 className='absolute text-white left-2.5 top-[3.5px] font-normal text-[12px]'>
             환장의 짝꿍
           </h3>
         </div>
@@ -248,7 +249,7 @@ export default function TestResult({
           target='_blank'
           rel='noreferrer'
         >
-          <Image src={grayBtn} alt='8BALL FRIENDS 입양하기' />
+          <Image src={greenBtn} alt='8BALL FRIENDS 입양하기' />
           <h4 className='absolute font-bold'>8BALL FRIENDS 입양하기</h4>
         </a>
         <a
