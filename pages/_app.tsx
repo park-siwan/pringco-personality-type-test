@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { css } from '@emotion/react';
+import { Analytics } from '@vercel/analytics/react';
 declare global {
   interface Window {
     Kakao: any;
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       `}
     >
       <Component {...pageProps} />
+      <Analytics />
     </div>
   );
 }
