@@ -12,7 +12,7 @@
 - next/head 에 meta 태그를 삽입해주어서 페이스북 공유시 이미지가 들어가게 만들었다. 순수하게 리액트만 사용할 때 보다 훨씬 간단했다.
 
 ### 커뮤니케이션
-- [Ju eun][https://github.com/cobaltune]에게 해당 프로젝트의 구조를 설명 해주고 원리를 이해할 수 있게 슬랙 허들을 활용해 설명해주었다.
+- [Ju eun](https://github.com/cobaltune)에게 해당 프로젝트의 구조를 설명 해주고 원리를 이해할 수 있게 슬랙 허들을 활용해 설명해주었다.
   - nextjs 기본구조, `npm run dev`, Typescript 등 궁금해 하는점에 대해 브리핑 해주었다.
 - figma에 있는 시안과 대조해보며 데이터를 object로 만들어 해당 프로젝트에 기여할 수 있는 환경을 조성해주었다.
 - 슬랙 허들과 git을 활용해 서로 pull 과 push를 이어받으면서 페어 프로그래밍(pair programming) 작업을 했다.
