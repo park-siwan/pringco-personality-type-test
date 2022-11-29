@@ -7,7 +7,7 @@ import first from '../public/images/test/1/first.png';
 import second from '../public/images/test/1/second.png';
 import grayBtn from '../public/images/grayBtn.png';
 import steper from '../public/images/test/steper.png';
-import { characterList } from './type';
+import { characterList } from '../src/type';
 
 export default function Test() {
   const route = useRouter();

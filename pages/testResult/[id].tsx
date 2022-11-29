@@ -19,7 +19,7 @@ import { GetServerSideProps } from 'next';
 import { result } from '../api/testResult/characterList';
 import Head from 'next/head';
 import Script from 'next/script';
-import { characterList } from '../type';
+import { characterList } from '../../src/type';
 
 const URL = 'https://pringco-personality-type-test.vercel.app/';
 export default function TestResult({
