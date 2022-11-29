@@ -6,6 +6,7 @@ import questionBox from '../public/images/test/question-box.png';
 import first from '../public/images/test/1/first.png';
 import second from '../public/images/test/1/second.png';
 import grayBtn from '../public/images/grayBtn.png';
+import steper from '../public/images/test/steper.png';
 
 export default function Test() {
   const route = useRouter();
@@ -49,16 +50,32 @@ export default function Test() {
       step: typeCounts.step + 1,
     });
   };
-  /**
-   * - pre-line 으로 줄바꿈 표현
-   * @link https://aboooks.tistory.com/187
-   **/
-  const btnStyle =
-    'bg-red-500 text-white w-full p-6 rounded-xl mb-3 h-32 whitespace-pre-line';
+
+  const LoadingBar = ({ index }: { index: number }) => {
+    const leftNumber = 12 * (index + 1);
+    return (
+      <div
+        className={`w-[9.36px] h-[20px] bg-[#476492] absolute top-[29px]`}
+        style={{ left: leftNumber }}
+      ></div>
+    );
+  };
+
   const TestDoc = () => {
     return (
       <div className='flex flex-col'>
-        <h2 className='text-center mb-10'>{typeCounts.step + 1}/12</h2>
+        <div className='flex justify-center w-full'>
+          <div className='flex justify-center mb-7 relative'>
+            <Image
+              src={steper}
+              className=''
+              alt={`${(typeCounts.step + 1).toString()}번째`}
+            />
+            {Array.from({ length: typeCounts.step + 1 }).map((item, index) => (
+              <LoadingBar key={index} index={index} />
+            ))}
+          </div>
+        </div>
         <div className='flex justify-center mb-[49px]'>
           <div className='flex justify-center items-center relative w-[332px]'>
             <Image
