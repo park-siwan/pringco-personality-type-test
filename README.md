@@ -1,34 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PRINGCO 8BALL 프로젝트
 
-## Getting Started
 
-First, run the development server:
+## 경험 기록
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 스타일링
+- utility first css 프레임 워크인 tailwindcss 에 첫 도전을 해본 프로젝트였다. 평소 익숙했던 스타일링 라이브러리인 emotion보다 더 간결하게 className에서 한줄로 쓸 수 있다는 점에서 마음에 들었다. 하지만 약간의 러닝커브가 있었다. 처음 만들 때는 빨랐지만, 장기적인 유지보수 관점에서는 약간의 시간 낭비가 느껴졌다. 이번 심리검사 프로젝트는 규모가 빠르게 커지지 않는 프로젝트이기 때문에 리스크가 상쇄되었다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Nextjs 의 SSR(server-side-render)
+- getServerSideProps 활용해 route.query로 들어오는 성격 유형을 활용해 해당되는 이미지를 props로 전달해주었다.
+- 초기 페이지 렌더링이 CSR보다 빨리지게 되었다. 일부 완성된 html 문서로 가져오기 때문에 사용자 경험이 나아진다는 걸 알았다.
+- next/head 에 meta 태그를 삽입해주어서 페이스북 공유시 이미지가 들어가게 만들었다. 순수하게 리액트만 사용할 때 보다 훨씬 간단했다.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### 커뮤니케이션
+- [Ju eun](https://github.com/cobaltune)에게 해당 프로젝트의 구조를 설명 해주고 원리를 이해할 수 있게 슬랙 허들을 활용해 설명해주었다.
+  - nextjs 기본구조, `npm run dev`, Typescript 등 궁금해 하는점에 대해 브리핑 해주었다.
+- figma에 있는 시안과 대조해보며 데이터를 object로 만들어 해당 프로젝트에 기여할 수 있는 환경을 조성해주었다.
+- 슬랙 허들로 화면을 공유하며 진행했다. git을 활용해 서로 pull 과 push를 이어받으며 페어 프로그래밍(pair programming) 작업을 했다.
+- 학습자의 학습상태를 고려해 그것을 쉬운 언어로 설명해주는것. 인수인계하는 방법, 이해할 수 있는 의사 전달에 대해 생각하며 노력했다
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![스크린샷 2022-11-28 오후 8 06 23](https://user-images.githubusercontent.com/39171933/204262743-81758e7a-515c-4290-9092-dae1cc1cb3ba.png)
+![스크린샷 2022-11-28 오후 8 05 50](https://user-images.githubusercontent.com/39171933/204262796-6b788396-8323-4f04-848f-081bbad54a10.png)
