@@ -7,6 +7,7 @@ import first from '../public/images/test/1/first.png';
 import second from '../public/images/test/1/second.png';
 import grayBtn from '../public/images/grayBtn.png';
 import steper from '../public/images/test/steper.png';
+import { characterList } from './type';
 
 export default function Test() {
   const route = useRouter();
@@ -26,24 +27,46 @@ export default function Test() {
   const handleTestCount = (type: personalityType) => {
     if (typeCounts.step === 11) {
       const { E, I, S, N, T, F, J, P } = typeCounts;
-      console.log('typeCounts', typeCounts);
+      // console.log('typeCounts', typeCounts);
       const extrovertedOrInTroverted = E > I ? 'E' : 'I';
       const sensingOrIntuition = S > N ? 'S' : 'N';
       const thinkingOrFeeling = T > F ? 'T' : 'F';
       const judgeOrRecognize = J > P ? 'J' : 'P';
 
-      const result =
+      const personType =
         extrovertedOrInTroverted +
         sensingOrIntuition +
         thinkingOrFeeling +
         judgeOrRecognize;
 
-      console.log('result', result);
+      // console.log('result', result);
       setFlow('result');
+      interface dictionary {
+        [x: string]: characterList;
+      }
+      const dictionary: dictionary = {
+        INTJ: 'milk-cow1',
+        ISTJ: 'milk-cow2',
+        ENFJ: 'quokka',
+        ISFP: 'elephant1',
+        ISTP: 'elephant2',
+        ENTP: 'rabbit1',
+        ESTP: 'rabbit2',
+        ENFP: 'frog',
+        ISFJ: 'duck1',
+        INFJ: 'duck2',
+        ESFJ: 'pig',
+        ESFP: 'puppy',
+        INFP: 'bear1',
+        INTP: 'bear2',
+        ESTJ: 'giraffe1',
+        ENTJ: 'giraffe2',
+      };
+      const result = dictionary[personType];
       route.push(`/testResult/${result}`);
       return;
     }
-    console.log('type', type);
+    // console.log('type', type);
     setTypeCounts({
       ...typeCounts,
       [type]: typeCounts[type] + 1,

@@ -16,34 +16,18 @@ import resultBackSm from '../../public/images/testResult/combination/result-back
 import grayBtn from '../../public/images/grayBtn.png';
 import greenBtn from '../../public/images/testResult/greenBtn.png';
 import { GetServerSideProps } from 'next';
-import { result } from '../api/testResult/data';
+import { result } from '../api/testResult/characterList';
 import Head from 'next/head';
 import Script from 'next/script';
+import { characterList } from '../type';
 
-type mbtiList =
-  | 'INTJ'
-  | 'ISTJ'
-  | 'ENFJ'
-  | 'ISFP'
-  | 'ISTP'
-  | 'ENTP'
-  | 'ESTP'
-  | 'ENFP'
-  | 'ISFJ'
-  | 'INFJ'
-  | 'ESFJ'
-  | 'ESFP'
-  | 'INFP'
-  | 'INTP'
-  | 'ESTJ'
-  | 'ENTJ';
 const URL = 'https://pringco-personality-type-test.vercel.app/';
 export default function TestResult({
   id,
   url,
   img,
 }: {
-  id: mbtiList;
+  id: characterList;
   url: string;
   img: StaticImageData;
 }) {
@@ -288,7 +272,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       id,
       url: URL,
-      img: result[id as mbtiList].img,
+      img: result[id as characterList].img,
     },
   };
 };
