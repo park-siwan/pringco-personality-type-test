@@ -8,6 +8,27 @@ import second from '../public/images/test/1/second.png';
 import grayBtn from '../public/images/grayBtn.png';
 import steper from '../public/images/test/steper.png';
 import { characterList } from '../src/type';
+interface dictionary {
+  [x: string]: characterList;
+}
+const dictionary: dictionary = {
+  INTJ: 'milk-cow1',
+  ISTJ: 'milk-cow2',
+  ENFJ: 'quokka',
+  ISFP: 'elephant1',
+  ISTP: 'elephant2',
+  ENTP: 'rabbit1',
+  ESTP: 'rabbit2',
+  ENFP: 'frog',
+  ISFJ: 'duck1',
+  INFJ: 'duck2',
+  ESFJ: 'pig',
+  ESFP: 'puppy',
+  INFP: 'bear1',
+  INTP: 'bear2',
+  ESTJ: 'giraffe1',
+  ENTJ: 'giraffe2',
+};
 
 export default function Test() {
   const route = useRouter();
@@ -41,27 +62,7 @@ export default function Test() {
 
       // console.log('result', result);
       setFlow('result');
-      interface dictionary {
-        [x: string]: characterList;
-      }
-      const dictionary: dictionary = {
-        INTJ: 'milk-cow1',
-        ISTJ: 'milk-cow2',
-        ENFJ: 'quokka',
-        ISFP: 'elephant1',
-        ISTP: 'elephant2',
-        ENTP: 'rabbit1',
-        ESTP: 'rabbit2',
-        ENFP: 'frog',
-        ISFJ: 'duck1',
-        INFJ: 'duck2',
-        ESFJ: 'pig',
-        ESFP: 'puppy',
-        INFP: 'bear1',
-        INTP: 'bear2',
-        ESTJ: 'giraffe1',
-        ENTJ: 'giraffe2',
-      };
+
       const result = dictionary[personType];
       route.push(`/testResult/${result}`);
       return;
@@ -84,66 +85,78 @@ export default function Test() {
     );
   };
 
-  const TestDoc = () => {
+  const Question = () => {
     return (
-      <div className='flex flex-col'>
-        <div className='flex justify-center w-full'>
-          <div className='flex justify-center mb-7 relative'>
-            <Image
-              src={steper}
-              className=''
-              alt={`${(typeCounts.step + 1).toString()}번째`}
-            />
-            {Array.from({ length: typeCounts.step + 1 }).map((item, index) => (
-              <LoadingBar key={index} index={index} />
-            ))}
-          </div>
-        </div>
-        <div className='flex justify-center mb-[49px]'>
-          <div className='flex justify-center items-center relative w-[332px]'>
-            <Image
-              src={questionBox}
-              alt={mockupData[typeCounts.step].question}
-            />
-            <h1 className='absolute whitespace-pre-line m-8 text-center'>
-              {mockupData[typeCounts.step].question}
-            </h1>
-          </div>
-        </div>
-        <div className={'flex flex-col w-full items-center'}>
-          <button
-            onClick={() =>
-              handleTestCount(mockupData[typeCounts.step].firstAnswer.type)
-            }
-            className='mb-7 relative flex justify-center items-center'
-          >
-            <Image
-              src={grayBtn}
-              className='w-[277px] h-[83px]'
-              alt={mockupData[typeCounts.step].firstAnswer.desc}
-            />
-            <h2 className='absolute font-bold m-6 text-[13px]'>
-              {mockupData[typeCounts.step].firstAnswer.desc}
-            </h2>
-          </button>
-          <button
-            onClick={() =>
-              handleTestCount(mockupData[typeCounts.step].secondAnswer.type)
-            }
-            className='mb-4 relative flex justify-center items-center'
-          >
-            <Image
-              className='w-[277px] h-[83px]'
-              src={grayBtn}
-              alt={mockupData[typeCounts.step].secondAnswer.desc}
-            />
-            <h2 className='absolute font-bold m-6 text-[13px]'>
-              {mockupData[typeCounts.step].secondAnswer.desc}
-            </h2>
-          </button>
+      <div className='flex justify-center mb-[49px]'>
+        <div className='flex justify-center items-center relative w-[332px]'>
+          <Image src={questionBox} alt={mockupData[typeCounts.step].question} />
+          <h1 className='absolute whitespace-pre-line m-8 text-center'>
+            {mockupData[typeCounts.step].question}
+          </h1>
         </div>
       </div>
     );
   };
-  return <TestDoc />;
+
+  const Answer = () => {
+    return (
+      <div className={'flex flex-col w-full items-center'}>
+        <button
+          onClick={() =>
+            handleTestCount(mockupData[typeCounts.step].firstAnswer.type)
+          }
+          className='mb-7 relative flex justify-center items-center'
+        >
+          <Image
+            src={grayBtn}
+            className='w-[277px] h-[83px]'
+            alt={mockupData[typeCounts.step].firstAnswer.desc}
+          />
+          <h2 className='absolute font-bold m-6 text-[13px]'>
+            {mockupData[typeCounts.step].firstAnswer.desc}
+          </h2>
+        </button>
+        <button
+          onClick={() =>
+            handleTestCount(mockupData[typeCounts.step].secondAnswer.type)
+          }
+          className='mb-4 relative flex justify-center items-center'
+        >
+          <Image
+            className='w-[277px] h-[83px]'
+            src={grayBtn}
+            alt={mockupData[typeCounts.step].secondAnswer.desc}
+          />
+          <h2 className='absolute font-bold m-6 text-[13px]'>
+            {mockupData[typeCounts.step].secondAnswer.desc}
+          </h2>
+        </button>
+      </div>
+    );
+  };
+
+  const Stepper = () => {
+    return (
+      <div className='flex justify-center w-full'>
+        <div className='flex justify-center mb-7 relative'>
+          <Image
+            src={steper}
+            className=''
+            alt={`${(typeCounts.step + 1).toString()}번째`}
+          />
+          {Array.from({ length: typeCounts.step + 1 }).map((item, index) => (
+            <LoadingBar key={index} index={index} />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className='flex flex-col'>
+      <Stepper />
+      <Question />
+      <Answer />
+    </div>
+  );
 }
