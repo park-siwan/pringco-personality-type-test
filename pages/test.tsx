@@ -8,6 +8,7 @@ import second from '../public/images/test/1/second.png';
 import grayBtn from '../public/images/grayBtn.png';
 import steper from '../public/images/test/steper.png';
 import { characterList } from '../src/type';
+import { GetServerSideProps } from 'next';
 interface dictionary {
   [x: string]: characterList;
 }
@@ -85,11 +86,32 @@ export default function Test() {
     );
   };
 
+  const Stepper = () => {
+    return (
+      <div className='flex justify-center w-full'>
+        <div className='flex justify-center mb-7 relative'>
+          <Image
+            src={steper}
+            className=''
+            alt={`${(typeCounts.step + 1).toString()}번째`}
+          />
+          {Array.from({ length: typeCounts.step + 1 }).map((item, index) => (
+            <LoadingBar key={index} index={index} />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   const Question = () => {
     return (
       <div className='flex justify-center mb-[49px]'>
         <div className='flex justify-center items-center relative w-[332px]'>
-          <Image src={questionBox} alt={mockupData[typeCounts.step].question} />
+          <Image
+            src={questionBox}
+            // alt={mockupData[typeCounts.step].question}
+            alt={'질문'}
+          />
           <h1 className='absolute whitespace-pre-line m-8 text-center'>
             {mockupData[typeCounts.step].question}
           </h1>
@@ -110,7 +132,8 @@ export default function Test() {
           <Image
             src={grayBtn}
             className='w-[277px] h-[83px]'
-            alt={mockupData[typeCounts.step].firstAnswer.desc}
+            alt={'응답1'}
+            // alt={mockupData[typeCounts.step].firstAnswer.desc}
           />
           <h2 className='absolute font-bold m-6 text-[13px]'>
             {mockupData[typeCounts.step].firstAnswer.desc}
@@ -125,29 +148,13 @@ export default function Test() {
           <Image
             className='w-[277px] h-[83px]'
             src={grayBtn}
-            alt={mockupData[typeCounts.step].secondAnswer.desc}
+            alt={'응답2'}
+            // alt={mockupData[typeCounts.step].secondAnswer.desc}
           />
           <h2 className='absolute font-bold m-6 text-[13px]'>
             {mockupData[typeCounts.step].secondAnswer.desc}
           </h2>
         </button>
-      </div>
-    );
-  };
-
-  const Stepper = () => {
-    return (
-      <div className='flex justify-center w-full'>
-        <div className='flex justify-center mb-7 relative'>
-          <Image
-            src={steper}
-            className=''
-            alt={`${(typeCounts.step + 1).toString()}번째`}
-          />
-          {Array.from({ length: typeCounts.step + 1 }).map((item, index) => (
-            <LoadingBar key={index} index={index} />
-          ))}
-        </div>
       </div>
     );
   };
@@ -160,3 +167,15 @@ export default function Test() {
     </div>
   );
 }
+
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   // const { query } = context;
+//   // const { id } = query;
+//   return {
+//     props: {
+//       // id,
+//       // url: URL,
+//       // img: result[id as characterList].img,
+//     },
+//   };
+// };
