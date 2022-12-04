@@ -272,7 +272,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       id,
       url: URL,
-      img: result[id as characterList].img,
+      img: result[id as characterList]?.img,
     },
   };
 };
