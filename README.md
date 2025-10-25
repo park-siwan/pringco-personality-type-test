@@ -4,7 +4,7 @@
 ## 경험 기록
 
 ### 스타일링
-- utility first css 프레임 워크인 tailwindcss 에 첫 도전을 해본 프로젝트였다. 평소 익숙했던 스타일링 라이브러리인 emotion보다 더 간결하게 className에서 한줄로 쓸 수 있다는 점에서 마음에 들었다. 하지만 약간의 러닝커브가 있었다. 처음 만들 때는 빨랐지만, 장기적인 유지보수 관점에서는 약간의 시간 낭비가 느껴졌다. 이번 심리검사 프로젝트는 규모가 빠르게 커지지 않는 프로젝트이기 때문에 리스크가 상쇄되었다.
+- utility first css 프레임 워크인 tailwindcss 에 첫 도전을 해본 프로젝트였다. 평소 익숙했던 스타일링 라이브러리인 emotion보다 더 간결하게 className에서 한줄로 쓸 수 있다는 점에서 마음에 들었다. 약간의 러닝커브가 있었다.
 
 ### Nextjs 의 SSR(server-side-render)
 - getServerSideProps 활용해 route.query로 들어오는 성격 유형을 활용해 해당되는 이미지를 props로 전달해주었다.
